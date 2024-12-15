@@ -1,0 +1,31 @@
+pipeline {
+    agent any
+    tools {
+        maven "MAVEN" 
+        jdk "JDK" 
+    }
+    stages {
+        stage('Initialize'){
+            steps{
+                echo "PATH = ${M2_HOME}/bin:${PATH}"
+                echo "M2_HOME = /opt/maven"
+            }
+        }
+        stage('Build') { 
+            steps {
+                sh 'mvn -B -DskipTests=true clean package'
+                sh 'docker buildx use archbuilder'
+                sh 'docker buildx build --load -t demo1 --builder=archbuilder  --platform=linux/arm64 . '
+                sh 'docker tag demo1 kaushalkarkar/demo1'
+                sh 'docker image push kaushalkarkar/demo1'
+            }
+        }
+        stage('Run') {
+           steps {
+                sh 'docker -H tcp://10.46.10.106:2365 image pull kaushalkarkar/demo1'                                                        
+                sh 'docker -H tcp://10.46.10.106:2365 container rm -f demo1 || true'                                                                   
+                sh 'docker -H tcp://10.46.10.106:2365 run --name demo1  --platform=linux/arm64 -d --network host  -v /home/ispluser/pagrexo/images:/home/ispluser/pagrexo/images  --restart=always kaushalkarkar/demo1'      
+           }
+        }
+    }
+}
