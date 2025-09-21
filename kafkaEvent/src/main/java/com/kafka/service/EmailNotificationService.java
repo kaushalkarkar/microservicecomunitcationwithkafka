@@ -31,8 +31,8 @@ import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Service;
 
-import com.kakfa.dao.EmailNotificationMasterDao;
-import com.kakfa.entity.MessageConfigurationMaster;
+import com.kafka.dao.EmailNotificationMasterDao;
+import com.kafka.entity.MessageConfigurationMaster;
 
 import jakarta.mail.Authenticator;
 import jakarta.mail.Message;
