@@ -1,4 +1,4 @@
-package com.kakfa.dao;
+package com.kafka.dao;
 
 import java.sql.Timestamp;
 import java.util.List;

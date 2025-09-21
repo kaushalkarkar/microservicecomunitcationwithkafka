@@ -1,11 +1,11 @@
-package com.kakfa.repo;
+package com.kafka.repo;
 
 import java.awt.TrayIcon.MessageType;
 import java.util.Optional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import com.kakfa.entity.MessageConfigurationMaster;
+import com.kafka.entity.MessageConfigurationMaster;
 
 public interface MessageConfigurationRepository extends JpaRepository<MessageConfigurationMaster, Long> {
 	

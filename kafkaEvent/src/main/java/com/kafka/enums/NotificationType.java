@@ -1,4 +1,4 @@
-package com.kakfa.enums;
+package com.kafka.enums;
 
 public enum NotificationType {
 	EMAIL

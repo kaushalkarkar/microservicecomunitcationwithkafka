@@ -1,10 +1,10 @@
-package com.kakfa.entity;
+package com.kafka.entity;
 
 import java.awt.TrayIcon.MessageType;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
-import com.kakfa.enums.NotificationType;
+import com.kafka.enums.NotificationType;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
